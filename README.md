@@ -27,6 +27,6 @@ YHPPSU[voltage]A[current]W
 - voltage - 4-digit real voltage value, e.g. 1510 - 15,10V, 0005 - 0,05V
 - current - 4-digit real current value, e.g. 5000 - 5A, 0050 - 0,05A
 
-LICENSE
+## LICENSE
 
 The software released under the terms of the MIT license.
