@@ -10,7 +10,7 @@ Max voltage - 31V, max current - 5A.
 1. Control messages format
 
 ### 1.1. Send message
-YHPPSU<voltage>H<current><output>Y
+YHPPSU[voltage]H[current][output]Y
 
 - voltage - 4-digit voltage value, e.g. 1510 - 15,10V, 0005 - 0,05V
 - current - 4-digit current value, e.g. 5000 - 5A, 0050 - 0,05A
@@ -23,7 +23,7 @@ Examples:
 - YHPPSU1050H1000OY - 10,5V 1A output disabled
 
 ### 1.2. Receive message
-YHPPSU<voltage>A<current>W
+YHPPSU[voltage]A[current]W
 - voltage - 4-digit real voltage value, e.g. 1510 - 15,10V, 0005 - 0,05V
 - current - 4-digit real current value, e.g. 5000 - 5A, 0050 - 0,05A
 
