@@ -83,7 +83,7 @@ namespace PowerSupplyManager
 
             var label = new Label
             {
-                Text = @",",
+                Text = @".",
                 AutoSize = true,
                 Font = _controlFont
             };

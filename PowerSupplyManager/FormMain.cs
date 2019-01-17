@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 using PowerSupplyManager.Dto;
 
 namespace PowerSupplyManager
@@ -121,30 +122,31 @@ namespace PowerSupplyManager
 
         private void UpdateCharts()
         {
-            chartVoltage.Series
-                        .First()
-                        .Points
-                        .DataBind(_dataVoltage.Data,
-                                  nameof (DiagramDataItem.Title),
-                                  nameof (DiagramDataItem.Value),
-                                  string.Empty);
-            chartCurrent.Series
-                        .First()
-                        .Points
-                        .DataBind(_dataCurrent.Data,
-                                  nameof (DiagramDataItem.Title),
-                                  nameof (DiagramDataItem.Value),
-                                  string.Empty);
+            void FillChart(Chart chart, DiagramDataItem[] data)
+            {
+                chart.Series
+                     .First()
+                     .Points
+                     .DataBind(data,
+                               nameof (DiagramDataItem.Title),
+                               nameof (DiagramDataItem.Value),
+                               string.Empty);
+            }
+
+            FillChart(chartVoltage, _dataVoltage.Data);
+            FillChart(chartCurrent, _dataCurrent.Data);
         }
 
         private void CreateFloatValuePanels()
         {
-            var ctlVoltage = new FloatValueControl(2, 2, 31F);
+            var ctlVoltage = new FloatValueControl(integerCount: 2,
+                                                   divisionalCount: 2,
+                                                   maxValue: 31F);
             panelVoltage.Controls.Add(ctlVoltage);
             ctlVoltage.ValueChanged += (sender, e) =>
             {
                 var value = ((FloatValueControl) sender).Value;
-                _comHandler?.SetVoltage(value.Integer, value.Divisional);
+                _comHandler?.SetVoltage(value);
             };
             ctlVoltage.Value = new FloatValue(2)
             {
@@ -152,12 +154,14 @@ namespace PowerSupplyManager
                 Divisional = 0
             };
 
-            var ctlCurrent = new FloatValueControl(1, 3, 5F);
+            var ctlCurrent = new FloatValueControl(integerCount: 1,
+                                                   divisionalCount: 3,
+                                                   maxValue: 5F);
             panelCurrent.Controls.Add(ctlCurrent);
             ctlCurrent.ValueChanged += (sender, e) =>
             {
-                var value = ((FloatValueControl)sender).Value;
-                _comHandler?.SetCurrent(value.Integer, value.Divisional);
+                var value = ((FloatValueControl) sender).Value;
+                _comHandler?.SetCurrent(value);
             };
             ctlCurrent.Value = new FloatValue(3)
             {

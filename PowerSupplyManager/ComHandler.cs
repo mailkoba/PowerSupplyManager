@@ -54,30 +54,28 @@ namespace PowerSupplyManager
             return _outOn;
         }
 
-        public void SetVoltage(int integer, int divisional)
+        public void SetVoltage(FloatValue voltage)
         {
-            var value = integer + ((float) divisional / 10);
+            var value = voltage.ToFloat();
 
             if (value < 0 || value > 31)
             {
                 throw new Exception("Voltage must be between 0 and 31!");
             }
 
-            _voltage.Integer = integer;
-            _voltage.Divisional = divisional;
+            _voltage.SetValue(voltage);
         }
 
-        public void SetCurrent(int integer, int divisional)
+        public void SetCurrent(FloatValue current)
         {
-            //var value = integer + ((float) divisional / 10);
+            var value = current.ToFloat();
 
-            //if (value < 0 || value > 5)
-            //{
-            //    throw new Exception("Current must be between 0 and 5!");
-            //}
+            if (value < 0 || value > 5)
+            {
+                throw new Exception("Current must be between 0 and 5!");
+            }
 
-            _current.Integer = integer;
-            _current.Divisional = divisional;
+            _current.SetValue(current);
         }
 
         public event DataReceivedEventHandler DataReceived;
