@@ -4,5 +4,5 @@
 
 /.vs
 /PowerSupplyManager/.vs/PowerSupplyManager/v15
-/PowerSupplyManager/bin/Debug
-/PowerSupplyManager/obj/Debug
+/PowerSupplyManager/bin/
+/PowerSupplyManager/obj/

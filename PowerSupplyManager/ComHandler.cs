@@ -87,12 +87,12 @@ namespace PowerSupplyManager
         private readonly string _comPort;
         private bool _outOn;
 
-        private readonly FloatValue _voltage = new FloatValue
+        private readonly FloatValue _voltage = new FloatValue(2)
         {
             Integer = 30
         };
 
-        private readonly FloatValue _current = new FloatValue
+        private readonly FloatValue _current = new FloatValue(3)
         {
             Integer = 5
         };

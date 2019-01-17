@@ -20,6 +20,7 @@ namespace PowerSupplyManager
         {
             statusCom.Text = @"-";
 
+            CreateFloatValuePanels();
             CreateHandler();
             UpdateCharts();
 
@@ -46,7 +47,7 @@ namespace PowerSupplyManager
         {
             var port = ComManager.GetComPort();
 
-            panelControls.Enabled = !string.IsNullOrWhiteSpace(port);
+           // panelControls.Enabled = !string.IsNullOrWhiteSpace(port);
 
             if (string.IsNullOrWhiteSpace(port))
             {
@@ -102,30 +103,6 @@ namespace PowerSupplyManager
             DestroyHandler();
         }
 
-        private void numericVoltageInteger_ValueChanged(object sender, EventArgs e)
-        {
-            _comHandler.SetVoltage((int) numericVoltageInteger.Value,
-                                   (int) numericVoltageDivisional.Value);
-        }
-
-        private void numericVoltageDivisional_ValueChanged(object sender, EventArgs e)
-        {
-            _comHandler.SetVoltage((int) numericVoltageInteger.Value,
-                                   (int) numericVoltageDivisional.Value);
-        }
-
-        private void numericCurrentInteger_ValueChanged(object sender, EventArgs e)
-        {
-            _comHandler.SetCurrent((int) numericCurrentInteger.Value,
-                                   (int) numericCurrentDivisional.Value);
-        }
-
-        private void numericCurrentDivisional_ValueChanged(object sender, EventArgs e)
-        {
-            _comHandler.SetCurrent((int) numericCurrentInteger.Value,
-                                   (int) numericCurrentDivisional.Value);
-        }
-
         private void buttonSettings_Click(object sender, EventArgs e)
         {
             using (var form = new FormSettings())
@@ -158,6 +135,35 @@ namespace PowerSupplyManager
                                   nameof (DiagramDataItem.Title),
                                   nameof (DiagramDataItem.Value),
                                   string.Empty);
+        }
+
+        private void CreateFloatValuePanels()
+        {
+            var ctlVoltage = new FloatValueControl(2, 2, 31F);
+            panelVoltage.Controls.Add(ctlVoltage);
+            ctlVoltage.ValueChanged += (sender, e) =>
+            {
+                var value = ((FloatValueControl) sender).Value;
+                _comHandler?.SetVoltage(value.Integer, value.Divisional);
+            };
+            ctlVoltage.Value = new FloatValue(2)
+            {
+                Integer = 30,
+                Divisional = 0
+            };
+
+            var ctlCurrent = new FloatValueControl(1, 3, 5F);
+            panelCurrent.Controls.Add(ctlCurrent);
+            ctlCurrent.ValueChanged += (sender, e) =>
+            {
+                var value = ((FloatValueControl)sender).Value;
+                _comHandler?.SetCurrent(value.Integer, value.Divisional);
+            };
+            ctlCurrent.Value = new FloatValue(3)
+            {
+                Integer = 5,
+                Divisional = 0
+            };
         }
     }
 }

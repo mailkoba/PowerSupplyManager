@@ -70,6 +70,12 @@
     <Compile Include="Dto\ComInfo.cs" />
     <Compile Include="Dto\FloatValue.cs" />
     <Compile Include="Dto\OutInfo.cs" />
+    <Compile Include="FloatValueControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FloatValueControl.Designer.cs">
+      <DependentUpon>FloatValueControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,6 +90,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FloatValueControl.resx">
+      <DependentUpon>FloatValueControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
