@@ -47,7 +47,7 @@ namespace PowerSupplyManager
         {
             var port = ComManager.GetComPort();
 
-           // panelControls.Enabled = !string.IsNullOrWhiteSpace(port);
+            panelControls.Enabled = !string.IsNullOrWhiteSpace(port);
 
             if (string.IsNullOrWhiteSpace(port))
             {
