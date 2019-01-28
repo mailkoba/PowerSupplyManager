@@ -10,9 +10,10 @@ Max voltage - 31V, max current - 5A.
 1. Control messages format
 
 ### 1.1. Send message
-YHPPSU[voltage]H[current][output]Y
+YHPPSU[voltage][over_current][current][output]
 
 - voltage - 4-digit voltage value, e.g. 1510 - 15,10V, 0005 - 0,05V
+- over_current - 1 symbol over current mode, "H" - steady output, "C" - trip output
 - current - 4-digit current value, e.g. 5000 - 5A, 0050 - 0,05A
 - output - 1 symbol, enable/disable output, "N" - disabled, "O" - enabled
 
