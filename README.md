@@ -29,6 +29,10 @@ YHPPSU[voltage]A[current][overcurrent]
 - current - 4-digit real current value, e.g. 5000 - 5A, 0050 - 0,05A
 - overcurrent - 1 symbol, real overcurrent value, "W" - normal output, "B" - overcurrent happened
 
+## User interface
+
+![Screenshot](./main_form_screen.png)
+
 ## LICENSE
 
 The software released under the terms of the MIT license.
