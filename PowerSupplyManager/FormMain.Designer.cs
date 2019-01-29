@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea11 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series11 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea12 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series12 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.statusCom = new System.Windows.Forms.ToolStripStatusLabel();
             this.chartVoltage = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
@@ -44,6 +44,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.comboOverCurrent = new System.Windows.Forms.ComboBox();
             this.panelCurrent = new System.Windows.Forms.Panel();
             this.panelVoltage = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
@@ -55,9 +57,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.chartCurrent = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.timerCharts = new System.Windows.Forms.Timer(this.components);
-            this.comboOverCurrent = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.statusStrip1.SuspendLayout();
+            this.labelOvercurrent = new System.Windows.Forms.Label();
+            this.statusStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartVoltage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -73,15 +74,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.chartCurrent)).BeginInit();
             this.SuspendLayout();
             // 
-            // statusStrip1
+            // statusStrip
             // 
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.statusCom});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 639);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1004, 22);
-            this.statusStrip1.TabIndex = 1;
-            this.statusStrip1.Text = "statusStrip1";
+            this.statusStrip.Location = new System.Drawing.Point(0, 639);
+            this.statusStrip.Name = "statusStrip";
+            this.statusStrip.Size = new System.Drawing.Size(1004, 22);
+            this.statusStrip.TabIndex = 1;
+            this.statusStrip.Text = "statusStrip1";
             // 
             // statusCom
             // 
@@ -92,75 +93,75 @@
             // chartVoltage
             // 
             this.chartVoltage.BackColor = System.Drawing.Color.Black;
-            chartArea11.AxisX.Interval = 10D;
-            chartArea11.AxisX.IntervalOffset = 10D;
-            chartArea11.AxisX.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
-            chartArea11.AxisX.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
-            chartArea11.AxisX.LabelStyle.ForeColor = System.Drawing.Color.White;
-            chartArea11.AxisX.LineColor = System.Drawing.Color.White;
-            chartArea11.AxisX.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
-            chartArea11.AxisX.MajorGrid.Interval = 10D;
-            chartArea11.AxisX.MajorGrid.IntervalOffset = 10D;
-            chartArea11.AxisX.MajorGrid.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
-            chartArea11.AxisX.MajorGrid.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
-            chartArea11.AxisX.MajorGrid.LineColor = System.Drawing.Color.White;
-            chartArea11.AxisX.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
-            chartArea11.AxisX.MajorTickMark.Enabled = false;
-            chartArea11.AxisX.MajorTickMark.Interval = 10D;
-            chartArea11.AxisX.MajorTickMark.IntervalOffset = 10D;
-            chartArea11.AxisX.MajorTickMark.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
-            chartArea11.AxisX.MajorTickMark.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
-            chartArea11.AxisX.MajorTickMark.LineColor = System.Drawing.Color.White;
-            chartArea11.AxisX.MajorTickMark.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
-            chartArea11.AxisX.MajorTickMark.TickMarkStyle = System.Windows.Forms.DataVisualization.Charting.TickMarkStyle.InsideArea;
-            chartArea11.AxisX.Maximum = 100D;
-            chartArea11.AxisX.Minimum = 0D;
-            chartArea11.AxisY.Interval = 10D;
-            chartArea11.AxisY.IntervalOffset = 10D;
-            chartArea11.AxisY.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
-            chartArea11.AxisY.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
-            chartArea11.AxisY.LabelStyle.ForeColor = System.Drawing.Color.White;
-            chartArea11.AxisY.LabelStyle.Interval = 10D;
-            chartArea11.AxisY.LabelStyle.IntervalOffset = 10D;
-            chartArea11.AxisY.LabelStyle.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
-            chartArea11.AxisY.LabelStyle.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
-            chartArea11.AxisY.LineColor = System.Drawing.Color.White;
-            chartArea11.AxisY.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
-            chartArea11.AxisY.MajorGrid.Interval = 10D;
-            chartArea11.AxisY.MajorGrid.IntervalOffset = 10D;
-            chartArea11.AxisY.MajorGrid.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
-            chartArea11.AxisY.MajorGrid.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
-            chartArea11.AxisY.MajorGrid.LineColor = System.Drawing.Color.White;
-            chartArea11.AxisY.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
-            chartArea11.AxisY.MajorTickMark.Enabled = false;
-            chartArea11.AxisY.MajorTickMark.Interval = 10D;
-            chartArea11.AxisY.MajorTickMark.IntervalOffset = 10D;
-            chartArea11.AxisY.MajorTickMark.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
-            chartArea11.AxisY.MajorTickMark.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
-            chartArea11.AxisY.MajorTickMark.TickMarkStyle = System.Windows.Forms.DataVisualization.Charting.TickMarkStyle.InsideArea;
-            chartArea11.AxisY.Maximum = 40D;
-            chartArea11.AxisY.Minimum = 0D;
-            chartArea11.BackColor = System.Drawing.Color.Black;
-            chartArea11.Name = "ChartArea1";
-            this.chartVoltage.ChartAreas.Add(chartArea11);
+            chartArea3.AxisX.Interval = 10D;
+            chartArea3.AxisX.IntervalOffset = 10D;
+            chartArea3.AxisX.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
+            chartArea3.AxisX.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
+            chartArea3.AxisX.LabelStyle.ForeColor = System.Drawing.Color.White;
+            chartArea3.AxisX.LineColor = System.Drawing.Color.White;
+            chartArea3.AxisX.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
+            chartArea3.AxisX.MajorGrid.Interval = 10D;
+            chartArea3.AxisX.MajorGrid.IntervalOffset = 10D;
+            chartArea3.AxisX.MajorGrid.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
+            chartArea3.AxisX.MajorGrid.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
+            chartArea3.AxisX.MajorGrid.LineColor = System.Drawing.Color.White;
+            chartArea3.AxisX.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
+            chartArea3.AxisX.MajorTickMark.Enabled = false;
+            chartArea3.AxisX.MajorTickMark.Interval = 10D;
+            chartArea3.AxisX.MajorTickMark.IntervalOffset = 10D;
+            chartArea3.AxisX.MajorTickMark.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
+            chartArea3.AxisX.MajorTickMark.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
+            chartArea3.AxisX.MajorTickMark.LineColor = System.Drawing.Color.White;
+            chartArea3.AxisX.MajorTickMark.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
+            chartArea3.AxisX.MajorTickMark.TickMarkStyle = System.Windows.Forms.DataVisualization.Charting.TickMarkStyle.InsideArea;
+            chartArea3.AxisX.Maximum = 100D;
+            chartArea3.AxisX.Minimum = 0D;
+            chartArea3.AxisY.Interval = 10D;
+            chartArea3.AxisY.IntervalOffset = 10D;
+            chartArea3.AxisY.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
+            chartArea3.AxisY.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
+            chartArea3.AxisY.LabelStyle.ForeColor = System.Drawing.Color.White;
+            chartArea3.AxisY.LabelStyle.Interval = 10D;
+            chartArea3.AxisY.LabelStyle.IntervalOffset = 10D;
+            chartArea3.AxisY.LabelStyle.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
+            chartArea3.AxisY.LabelStyle.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
+            chartArea3.AxisY.LineColor = System.Drawing.Color.White;
+            chartArea3.AxisY.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
+            chartArea3.AxisY.MajorGrid.Interval = 10D;
+            chartArea3.AxisY.MajorGrid.IntervalOffset = 10D;
+            chartArea3.AxisY.MajorGrid.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
+            chartArea3.AxisY.MajorGrid.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
+            chartArea3.AxisY.MajorGrid.LineColor = System.Drawing.Color.White;
+            chartArea3.AxisY.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
+            chartArea3.AxisY.MajorTickMark.Enabled = false;
+            chartArea3.AxisY.MajorTickMark.Interval = 10D;
+            chartArea3.AxisY.MajorTickMark.IntervalOffset = 10D;
+            chartArea3.AxisY.MajorTickMark.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
+            chartArea3.AxisY.MajorTickMark.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
+            chartArea3.AxisY.MajorTickMark.TickMarkStyle = System.Windows.Forms.DataVisualization.Charting.TickMarkStyle.InsideArea;
+            chartArea3.AxisY.Maximum = 40D;
+            chartArea3.AxisY.Minimum = 0D;
+            chartArea3.BackColor = System.Drawing.Color.Black;
+            chartArea3.Name = "ChartArea1";
+            this.chartVoltage.ChartAreas.Add(chartArea3);
             this.chartVoltage.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chartVoltage.Location = new System.Drawing.Point(0, 0);
             this.chartVoltage.Name = "chartVoltage";
-            series11.BackHatchStyle = System.Windows.Forms.DataVisualization.Charting.ChartHatchStyle.Divot;
-            series11.BackImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            series11.BackSecondaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            series11.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            series11.BorderWidth = 3;
-            series11.ChartArea = "ChartArea1";
-            series11.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series11.Color = System.Drawing.Color.Gold;
-            series11.LabelBackColor = System.Drawing.Color.Black;
-            series11.LabelBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            series11.MarkerColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            series11.Name = "Series1";
-            series11.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
-            series11.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Single;
-            this.chartVoltage.Series.Add(series11);
+            series3.BackHatchStyle = System.Windows.Forms.DataVisualization.Charting.ChartHatchStyle.Divot;
+            series3.BackImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            series3.BackSecondaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            series3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            series3.BorderWidth = 3;
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series3.Color = System.Drawing.Color.Gold;
+            series3.LabelBackColor = System.Drawing.Color.Black;
+            series3.LabelBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            series3.MarkerColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            series3.Name = "Series1";
+            series3.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
+            series3.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Single;
+            this.chartVoltage.Series.Add(series3);
             this.chartVoltage.Size = new System.Drawing.Size(700, 319);
             this.chartVoltage.TabIndex = 9;
             // 
@@ -176,6 +177,7 @@
             // 
             this.splitContainer1.Panel1.Controls.Add(this.panelControls);
             this.splitContainer1.Panel1.Controls.Add(this.buttonSettings);
+            this.splitContainer1.Panel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             // 
             // splitContainer1.Panel2
             // 
@@ -190,18 +192,20 @@
             this.panelControls.Controls.Add(this.groupBox1);
             this.panelControls.Location = new System.Drawing.Point(12, 12);
             this.panelControls.Name = "panelControls";
-            this.panelControls.Size = new System.Drawing.Size(282, 443);
+            this.panelControls.Size = new System.Drawing.Size(277, 496);
             this.panelControls.TabIndex = 16;
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.labelOvercurrent);
             this.groupBox2.Controls.Add(this.labelOutCurrent);
             this.groupBox2.Controls.Add(this.labelOutVoltage);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.groupBox2.Location = new System.Drawing.Point(7, 311);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(268, 126);
+            this.groupBox2.Size = new System.Drawing.Size(261, 170);
             this.groupBox2.TabIndex = 15;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Out";
@@ -255,33 +259,58 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.buttonOn);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.groupBox1.Location = new System.Drawing.Point(7, 3);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(5);
-            this.groupBox1.Size = new System.Drawing.Size(268, 283);
+            this.groupBox1.Size = new System.Drawing.Size(261, 283);
             this.groupBox1.TabIndex = 13;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Set";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.Location = new System.Drawing.Point(6, 158);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(136, 20);
+            this.label3.TabIndex = 16;
+            this.label3.Text = "Overcurrent mode";
+            // 
+            // comboOverCurrent
+            // 
+            this.comboOverCurrent.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboOverCurrent.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.comboOverCurrent.FormattingEnabled = true;
+            this.comboOverCurrent.Items.AddRange(new object[] {
+            "Steady output",
+            "Trip output"});
+            this.comboOverCurrent.Location = new System.Drawing.Point(76, 181);
+            this.comboOverCurrent.Name = "comboOverCurrent";
+            this.comboOverCurrent.Size = new System.Drawing.Size(176, 28);
+            this.comboOverCurrent.TabIndex = 15;
+            this.comboOverCurrent.SelectedIndexChanged += new System.EventHandler(this.comboOverCurrent_SelectedIndexChanged);
+            // 
             // panelCurrent
             // 
-            this.panelCurrent.Location = new System.Drawing.Point(76, 99);
+            this.panelCurrent.Location = new System.Drawing.Point(76, 96);
             this.panelCurrent.Name = "panelCurrent";
-            this.panelCurrent.Size = new System.Drawing.Size(185, 43);
+            this.panelCurrent.Size = new System.Drawing.Size(176, 43);
             this.panelCurrent.TabIndex = 14;
             // 
             // panelVoltage
             // 
             this.panelVoltage.Location = new System.Drawing.Point(76, 24);
             this.panelVoltage.Name = "panelVoltage";
-            this.panelVoltage.Size = new System.Drawing.Size(185, 43);
+            this.panelVoltage.Size = new System.Drawing.Size(176, 43);
             this.panelVoltage.TabIndex = 14;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(12, 99);
+            this.label2.Location = new System.Drawing.Point(6, 96);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(62, 20);
             this.label2.TabIndex = 10;
@@ -291,7 +320,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(10, 24);
+            this.label1.Location = new System.Drawing.Point(6, 24);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(64, 20);
             this.label1.TabIndex = 11;
@@ -302,7 +331,7 @@
             this.buttonOn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonOn.Location = new System.Drawing.Point(8, 232);
             this.buttonOn.Name = "buttonOn";
-            this.buttonOn.Size = new System.Drawing.Size(253, 33);
+            this.buttonOn.Size = new System.Drawing.Size(244, 33);
             this.buttonOn.TabIndex = 9;
             this.buttonOn.Text = "ON";
             this.buttonOn.UseVisualStyleBackColor = true;
@@ -310,7 +339,8 @@
             // 
             // buttonSettings
             // 
-            this.buttonSettings.Location = new System.Drawing.Point(19, 472);
+            this.buttonSettings.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonSettings.Location = new System.Drawing.Point(18, 514);
             this.buttonSettings.Name = "buttonSettings";
             this.buttonSettings.Size = new System.Drawing.Size(75, 23);
             this.buttonSettings.TabIndex = 15;
@@ -369,80 +399,80 @@
             // chartCurrent
             // 
             this.chartCurrent.BackColor = System.Drawing.Color.Black;
-            chartArea12.AxisX.Interval = 10D;
-            chartArea12.AxisX.IntervalOffset = 10D;
-            chartArea12.AxisX.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
-            chartArea12.AxisX.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
-            chartArea12.AxisX.LabelStyle.ForeColor = System.Drawing.Color.White;
-            chartArea12.AxisX.LineColor = System.Drawing.Color.White;
-            chartArea12.AxisX.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
-            chartArea12.AxisX.MajorGrid.Interval = 10D;
-            chartArea12.AxisX.MajorGrid.IntervalOffset = 10D;
-            chartArea12.AxisX.MajorGrid.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
-            chartArea12.AxisX.MajorGrid.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
-            chartArea12.AxisX.MajorGrid.LineColor = System.Drawing.Color.White;
-            chartArea12.AxisX.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
-            chartArea12.AxisX.MajorTickMark.Enabled = false;
-            chartArea12.AxisX.MajorTickMark.Interval = 10D;
-            chartArea12.AxisX.MajorTickMark.IntervalOffset = 10D;
-            chartArea12.AxisX.MajorTickMark.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
-            chartArea12.AxisX.MajorTickMark.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
-            chartArea12.AxisX.MajorTickMark.LineColor = System.Drawing.Color.White;
-            chartArea12.AxisX.MajorTickMark.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
-            chartArea12.AxisX.MajorTickMark.TickMarkStyle = System.Windows.Forms.DataVisualization.Charting.TickMarkStyle.InsideArea;
-            chartArea12.AxisX.Maximum = 100D;
-            chartArea12.AxisX.Minimum = 0D;
-            chartArea12.AxisY.Interval = 1D;
-            chartArea12.AxisY.IntervalOffset = 1D;
-            chartArea12.AxisY.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
-            chartArea12.AxisY.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
-            chartArea12.AxisY.LabelStyle.ForeColor = System.Drawing.Color.White;
-            chartArea12.AxisY.LabelStyle.Format = "  {0}";
-            chartArea12.AxisY.LabelStyle.Interval = 1D;
-            chartArea12.AxisY.LabelStyle.IntervalOffset = 1D;
-            chartArea12.AxisY.LabelStyle.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
-            chartArea12.AxisY.LabelStyle.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
-            chartArea12.AxisY.LineColor = System.Drawing.Color.White;
-            chartArea12.AxisY.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
-            chartArea12.AxisY.MajorGrid.Interval = 1D;
-            chartArea12.AxisY.MajorGrid.IntervalOffset = 1D;
-            chartArea12.AxisY.MajorGrid.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
-            chartArea12.AxisY.MajorGrid.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
-            chartArea12.AxisY.MajorGrid.LineColor = System.Drawing.Color.White;
-            chartArea12.AxisY.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
-            chartArea12.AxisY.MajorTickMark.Interval = 1D;
-            chartArea12.AxisY.MajorTickMark.IntervalOffset = 1D;
-            chartArea12.AxisY.MajorTickMark.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
-            chartArea12.AxisY.MajorTickMark.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
-            chartArea12.AxisY.MajorTickMark.LineColor = System.Drawing.Color.White;
-            chartArea12.AxisY.MajorTickMark.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
-            chartArea12.AxisY.MajorTickMark.TickMarkStyle = System.Windows.Forms.DataVisualization.Charting.TickMarkStyle.InsideArea;
-            chartArea12.AxisY.Maximum = 6D;
-            chartArea12.AxisY.Minimum = 0D;
-            chartArea12.AxisY.MinorGrid.Interval = 1D;
-            chartArea12.AxisY.MinorGrid.IntervalOffset = 1D;
-            chartArea12.AxisY.MinorGrid.LineColor = System.Drawing.Color.White;
-            chartArea12.BackColor = System.Drawing.Color.Black;
-            chartArea12.Name = "ChartArea1";
-            this.chartCurrent.ChartAreas.Add(chartArea12);
+            chartArea4.AxisX.Interval = 10D;
+            chartArea4.AxisX.IntervalOffset = 10D;
+            chartArea4.AxisX.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
+            chartArea4.AxisX.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
+            chartArea4.AxisX.LabelStyle.ForeColor = System.Drawing.Color.White;
+            chartArea4.AxisX.LineColor = System.Drawing.Color.White;
+            chartArea4.AxisX.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
+            chartArea4.AxisX.MajorGrid.Interval = 10D;
+            chartArea4.AxisX.MajorGrid.IntervalOffset = 10D;
+            chartArea4.AxisX.MajorGrid.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
+            chartArea4.AxisX.MajorGrid.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
+            chartArea4.AxisX.MajorGrid.LineColor = System.Drawing.Color.White;
+            chartArea4.AxisX.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
+            chartArea4.AxisX.MajorTickMark.Enabled = false;
+            chartArea4.AxisX.MajorTickMark.Interval = 10D;
+            chartArea4.AxisX.MajorTickMark.IntervalOffset = 10D;
+            chartArea4.AxisX.MajorTickMark.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
+            chartArea4.AxisX.MajorTickMark.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
+            chartArea4.AxisX.MajorTickMark.LineColor = System.Drawing.Color.White;
+            chartArea4.AxisX.MajorTickMark.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
+            chartArea4.AxisX.MajorTickMark.TickMarkStyle = System.Windows.Forms.DataVisualization.Charting.TickMarkStyle.InsideArea;
+            chartArea4.AxisX.Maximum = 100D;
+            chartArea4.AxisX.Minimum = 0D;
+            chartArea4.AxisY.Interval = 1D;
+            chartArea4.AxisY.IntervalOffset = 1D;
+            chartArea4.AxisY.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
+            chartArea4.AxisY.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
+            chartArea4.AxisY.LabelStyle.ForeColor = System.Drawing.Color.White;
+            chartArea4.AxisY.LabelStyle.Format = "  {0}";
+            chartArea4.AxisY.LabelStyle.Interval = 1D;
+            chartArea4.AxisY.LabelStyle.IntervalOffset = 1D;
+            chartArea4.AxisY.LabelStyle.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
+            chartArea4.AxisY.LabelStyle.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
+            chartArea4.AxisY.LineColor = System.Drawing.Color.White;
+            chartArea4.AxisY.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
+            chartArea4.AxisY.MajorGrid.Interval = 1D;
+            chartArea4.AxisY.MajorGrid.IntervalOffset = 1D;
+            chartArea4.AxisY.MajorGrid.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
+            chartArea4.AxisY.MajorGrid.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
+            chartArea4.AxisY.MajorGrid.LineColor = System.Drawing.Color.White;
+            chartArea4.AxisY.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
+            chartArea4.AxisY.MajorTickMark.Interval = 1D;
+            chartArea4.AxisY.MajorTickMark.IntervalOffset = 1D;
+            chartArea4.AxisY.MajorTickMark.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
+            chartArea4.AxisY.MajorTickMark.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
+            chartArea4.AxisY.MajorTickMark.LineColor = System.Drawing.Color.White;
+            chartArea4.AxisY.MajorTickMark.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
+            chartArea4.AxisY.MajorTickMark.TickMarkStyle = System.Windows.Forms.DataVisualization.Charting.TickMarkStyle.InsideArea;
+            chartArea4.AxisY.Maximum = 6D;
+            chartArea4.AxisY.Minimum = 0D;
+            chartArea4.AxisY.MinorGrid.Interval = 1D;
+            chartArea4.AxisY.MinorGrid.IntervalOffset = 1D;
+            chartArea4.AxisY.MinorGrid.LineColor = System.Drawing.Color.White;
+            chartArea4.BackColor = System.Drawing.Color.Black;
+            chartArea4.Name = "ChartArea1";
+            this.chartCurrent.ChartAreas.Add(chartArea4);
             this.chartCurrent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chartCurrent.Location = new System.Drawing.Point(0, 0);
             this.chartCurrent.Name = "chartCurrent";
-            series12.BackHatchStyle = System.Windows.Forms.DataVisualization.Charting.ChartHatchStyle.Divot;
-            series12.BackImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            series12.BackSecondaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            series12.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            series12.BorderWidth = 3;
-            series12.ChartArea = "ChartArea1";
-            series12.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series12.Color = System.Drawing.Color.Gold;
-            series12.LabelBackColor = System.Drawing.Color.Black;
-            series12.LabelBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            series12.MarkerColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            series12.Name = "Series1";
-            series12.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
-            series12.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Single;
-            this.chartCurrent.Series.Add(series12);
+            series4.BackHatchStyle = System.Windows.Forms.DataVisualization.Charting.ChartHatchStyle.Divot;
+            series4.BackImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            series4.BackSecondaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            series4.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            series4.BorderWidth = 3;
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series4.Color = System.Drawing.Color.Gold;
+            series4.LabelBackColor = System.Drawing.Color.Black;
+            series4.LabelBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            series4.MarkerColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            series4.Name = "Series1";
+            series4.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
+            series4.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Single;
+            this.chartCurrent.Series.Add(series4);
             this.chartCurrent.Size = new System.Drawing.Size(700, 316);
             this.chartCurrent.TabIndex = 10;
             // 
@@ -451,29 +481,16 @@
             this.timerCharts.Interval = 500;
             this.timerCharts.Tick += new System.EventHandler(this.timerCharts_Tick);
             // 
-            // comboOverCurrent
+            // labelOvercurrent
             // 
-            this.comboOverCurrent.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboOverCurrent.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.comboOverCurrent.FormattingEnabled = true;
-            this.comboOverCurrent.Items.AddRange(new object[] {
-            "Steady output",
-            "Trip output"});
-            this.comboOverCurrent.Location = new System.Drawing.Point(76, 181);
-            this.comboOverCurrent.Name = "comboOverCurrent";
-            this.comboOverCurrent.Size = new System.Drawing.Size(184, 28);
-            this.comboOverCurrent.TabIndex = 15;
-            this.comboOverCurrent.SelectedIndexChanged += new System.EventHandler(this.comboOverCurrent_SelectedIndexChanged);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(10, 158);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(140, 20);
-            this.label3.TabIndex = 16;
-            this.label3.Text = "Over current mode";
+            this.labelOvercurrent.AutoSize = true;
+            this.labelOvercurrent.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.labelOvercurrent.ForeColor = System.Drawing.Color.Red;
+            this.labelOvercurrent.Location = new System.Drawing.Point(10, 133);
+            this.labelOvercurrent.Name = "labelOvercurrent";
+            this.labelOvercurrent.Size = new System.Drawing.Size(92, 20);
+            this.labelOvercurrent.TabIndex = 15;
+            this.labelOvercurrent.Text = "Overcurrent";
             // 
             // FormMain
             // 
@@ -481,14 +498,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1004, 661);
             this.Controls.Add(this.splitContainer1);
-            this.Controls.Add(this.statusStrip1);
+            this.Controls.Add(this.statusStrip);
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "305DB power supply manager";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormMain_FormClosing);
             this.Load += new System.EventHandler(this.FormMain_Load);
-            this.statusStrip1.ResumeLayout(false);
-            this.statusStrip1.PerformLayout();
+            this.statusStrip.ResumeLayout(false);
+            this.statusStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartVoltage)).EndInit();
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
@@ -512,7 +529,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.StatusStrip statusStrip;
         private System.Windows.Forms.ToolStripStatusLabel statusCom;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartVoltage;
         private System.Windows.Forms.SplitContainer splitContainer1;
@@ -536,6 +553,7 @@
         private System.Windows.Forms.Panel panelCurrent;
         private System.Windows.Forms.ComboBox comboOverCurrent;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label labelOvercurrent;
     }
 }
 

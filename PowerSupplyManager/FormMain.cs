@@ -16,6 +16,8 @@ namespace PowerSupplyManager
         private ComHandler _comHandler;
         private readonly DiagramData _dataVoltage = new DiagramData();
         private readonly DiagramData _dataCurrent = new DiagramData();
+        private FloatValueControl _ctlVoltage;
+        private FloatValueControl _ctlCurrent;
 
         private void FormMain_Load(object sender, EventArgs e)
         {
@@ -77,6 +79,7 @@ namespace PowerSupplyManager
 
                     labelOutVoltage.Text = e.Voltage.ToString("00.00V");
                     labelOutCurrent.Text = e.Current.ToString("0.000A");
+                    labelOvercurrent.Visible = e.IsOverCurrent;
 
                     _dataVoltage.AddValue(e.Voltage);
                     _dataCurrent.AddValue(e.Current);
@@ -140,45 +143,53 @@ namespace PowerSupplyManager
 
         private void CreateFloatValuePanels()
         {
-            var ctlVoltage = new FloatValueControl(integerCount: 2,
-                                                   divisionalCount: 2,
-                                                   maxValue: 31F);
-            panelVoltage.Controls.Add(ctlVoltage);
-            ctlVoltage.ValueChanged += (sender, e) =>
+            _ctlVoltage = new FloatValueControl(integerCount: 2,
+                                                divisionalCount: 2,
+                                                maxValue: 31F);
+            panelVoltage.Controls.Add(_ctlVoltage);
+            _ctlVoltage.ValueChanged += (sender, e) =>
             {
                 var value = ((FloatValueControl) sender).Value;
                 _comHandler?.SetVoltage(value);
             };
-            ctlVoltage.Value = new FloatValue(2)
+            _ctlVoltage.Value = new FloatValue(2)
             {
-                Integer = 30,
+                Integer = 15,
                 Divisional = 0
             };
 
-            var ctlCurrent = new FloatValueControl(integerCount: 1,
-                                                   divisionalCount: 3,
-                                                   maxValue: 5F);
-            panelCurrent.Controls.Add(ctlCurrent);
-            ctlCurrent.ValueChanged += (sender, e) =>
+            _ctlCurrent = new FloatValueControl(integerCount: 1,
+                                                divisionalCount: 3,
+                                                maxValue: 5F);
+            panelCurrent.Controls.Add(_ctlCurrent);
+            _ctlCurrent.ValueChanged += (sender, e) =>
             {
                 var value = ((FloatValueControl) sender).Value;
                 _comHandler?.SetCurrent(value);
             };
-            ctlCurrent.Value = new FloatValue(3)
+            _ctlCurrent.Value = new FloatValue(3)
             {
-                Integer = 5,
-                Divisional = 0
+                Integer = 2,
+                Divisional = 500
             };
         }
 
         private void comboOverCurrent_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var overCurrentMode =
+            var overcurrentMode =
                 comboOverCurrent.SelectedIndex == 0
-                    ? OverCurrentMode.SteadyOutput
-                    : OverCurrentMode.TripOutput;
+                    ? OvercurrentMode.SteadyOutput
+                    : OvercurrentMode.TripOutput;
 
-            _comHandler?.SetOverCurrentMode(overCurrentMode);
+            _comHandler?.SetOvercurrentMode(overcurrentMode);
+
+            _ctlCurrent?.SetMinValue(new FloatValue(3)
+            {
+                Integer = 0,
+                Divisional = overcurrentMode == OvercurrentMode.SteadyOutput
+                    ? 0
+                    : 20
+            });
         }
     }
 }

@@ -6,5 +6,7 @@ namespace PowerSupplyManager.Dto
         public float Voltage { get; set; }
 
         public float Current { get; set; }
+
+        public bool IsOverCurrent { get; set; }
     }
 }

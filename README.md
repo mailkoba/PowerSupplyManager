@@ -7,26 +7,27 @@ Windows GUI manager for YIHUA 305DB (Element 305DB, etc) power supply.
 Max voltage - 31V, max current - 5A.
 
 ## Power supply protocol
-1. Control messages format
+Control messages format
 
-### 1.1. Send message
-YHPPSU[voltage][over_current][current][output]
+### 1. Send message
+YHPPSU[voltage][overcurrent][current][output]
 
 - voltage - 4-digit voltage value, e.g. 1510 - 15,10V, 0005 - 0,05V
-- over_current - 1 symbol over current mode, "H" - steady output, "C" - trip output
+- overcurrent - 1 symbol overcurrent mode, "H" - steady output, "C" - trip output
 - current - 4-digit current value, e.g. 5000 - 5A, 0050 - 0,05A
 - output - 1 symbol, enable/disable output, "N" - disabled, "O" - enabled
 
 Note: if current set to 0000 output will be disabled.
 
 Examples:
-- YHPPSU0505H5010OY - 5,05V 5,01A output enabled
-- YHPPSU1050H1000OY - 10,5V 1A output disabled
+- YHPPSU0505H5010OY - 5,05V 5,01A output enabled, steady output
+- YHPPSU1050C1000OY - 10,5V 1A output disabled, trip output
 
-### 1.2. Receive message
-YHPPSU[voltage]A[current]W
+### 2. Receive message
+YHPPSU[voltage]A[current][overcurrent]
 - voltage - 4-digit real voltage value, e.g. 1510 - 15,10V, 0005 - 0,05V
 - current - 4-digit real current value, e.g. 5000 - 5A, 0050 - 0,05A
+- overcurrent - 1-symbol, real overcurrent value, "W" - normal output, "B" - overcurrent happened
 
 ## LICENSE
 

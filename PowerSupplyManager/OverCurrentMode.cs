@@ -1,7 +1,7 @@
 ﻿
 namespace PowerSupplyManager
 {
-    internal enum OverCurrentMode
+    internal enum OvercurrentMode
     {
         SteadyOutput = 1,
         TripOutput = 2

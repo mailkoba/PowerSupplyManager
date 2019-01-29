@@ -54,9 +54,9 @@ namespace PowerSupplyManager
             return _outOn;
         }
 
-        public void SetOverCurrentMode(OverCurrentMode overCurrentMode)
+        public void SetOvercurrentMode(OvercurrentMode overcurrentMode)
         {
-            _overCurrentMode = overCurrentMode;
+            _overcurrentMode = overcurrentMode;
         }
 
         public void SetVoltage(FloatValue voltage)
@@ -89,7 +89,7 @@ namespace PowerSupplyManager
         private CancellationTokenSource _token;
         private readonly string _comPort;
         private bool _outOn;
-        private OverCurrentMode _overCurrentMode = OverCurrentMode.SteadyOutput;
+        private OvercurrentMode _overcurrentMode = OvercurrentMode.SteadyOutput;
 
         private readonly FloatValue _voltage = new FloatValue(2)
         {
@@ -146,7 +146,7 @@ namespace PowerSupplyManager
                                  CommandPrefix,
                                  _voltage.Integer,
                                  _voltage.Divisional,
-                                 _overCurrentMode == OverCurrentMode.SteadyOutput ? "H" : "C",
+                                 _overcurrentMode == OvercurrentMode.SteadyOutput ? "H" : "C",
                                  _current.Integer,
                                  _current.Divisional,
                                  _outOn ? "O" : "N");
@@ -155,12 +155,17 @@ namespace PowerSupplyManager
         private void ParseReceivedMessage(string value)
         {
             //YHPPSU0000A0000W
+            //YHPPSU0000A0038B
 
             value = SplitMessage(value).LastOrDefault();
             if (string.IsNullOrWhiteSpace(value)) return;
 
             if (!value.StartsWith(CommandPrefix, StringComparison.Ordinal)) return;
-            if (!value.EndsWith("W")) return;
+            if (!(value.EndsWith("W") || value.EndsWith("B")))
+            {
+                var g = "";
+                return;
+            }
 
             var voltage = float.Parse(string.Format("{0}.{1}",
                                                     value.Substring(6, 2),
@@ -177,7 +182,8 @@ namespace PowerSupplyManager
             var outInfo = new OutInfo
             {
                 Voltage = voltage,
-                Current = current
+                Current = current,
+                IsOverCurrent = value.EndsWith("B")
             };
 
             var handler = DataReceived;

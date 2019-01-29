@@ -16,6 +16,7 @@ namespace PowerSupplyManager
             _maxValue = maxValue;
 
             _prevValue = new FloatValue(divisionalCount);
+            _minValue = new FloatValue(divisionalCount);
 
             InitializeComponent();
 
@@ -43,6 +44,17 @@ namespace PowerSupplyManager
                 {
                     _prevValue.SetValue(value);
                 }
+            }
+        }
+
+        public void SetMinValue(FloatValue minValue)
+        {
+            Assertion.IsNull(minValue, nameof (minValue));
+
+            _minValue = minValue;
+            if (Value.ToFloat() < _minValue.ToFloat())
+            {
+                Value = _minValue;
             }
         }
 
@@ -177,7 +189,7 @@ namespace PowerSupplyManager
         private bool CheckAndRevertValue()
         {
             var value = Value.ToFloat();
-            if (value < 0 || value > _maxValue)
+            if (value < _minValue.ToFloat() || value > _maxValue)
             {
                 _skipEvent = true;
 
@@ -290,6 +302,7 @@ namespace PowerSupplyManager
         }
 
         private bool _skipEvent;
+        private FloatValue _minValue;
         private ControlPosition _eventPosition;
         private readonly FloatValue _prevValue;
         private readonly List<NumericUpDown> _controlsInteger = new List<NumericUpDown>();
