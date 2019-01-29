@@ -161,11 +161,7 @@ namespace PowerSupplyManager
             if (string.IsNullOrWhiteSpace(value)) return;
 
             if (!value.StartsWith(CommandPrefix, StringComparison.Ordinal)) return;
-            if (!(value.EndsWith("W") || value.EndsWith("B")))
-            {
-                var g = "";
-                return;
-            }
+            if (!(value.EndsWith("W") || value.EndsWith("B"))) return;
 
             var voltage = float.Parse(string.Format("{0}.{1}",
                                                     value.Substring(6, 2),

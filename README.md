@@ -27,7 +27,7 @@ Examples:
 YHPPSU[voltage]A[current][overcurrent]
 - voltage - 4-digit real voltage value, e.g. 1510 - 15,10V, 0005 - 0,05V
 - current - 4-digit real current value, e.g. 5000 - 5A, 0050 - 0,05A
-- overcurrent - 1-symbol, real overcurrent value, "W" - normal output, "B" - overcurrent happened
+- overcurrent - 1 symbol, real overcurrent value, "W" - normal output, "B" - overcurrent happened
 
 ## LICENSE
 
