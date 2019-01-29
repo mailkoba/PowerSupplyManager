@@ -54,6 +54,11 @@ namespace PowerSupplyManager
             return _outOn;
         }
 
+        public void SetOverCurrentMode(OverCurrentMode overCurrentMode)
+        {
+            _overCurrentMode = overCurrentMode;
+        }
+
         public void SetVoltage(FloatValue voltage)
         {
             var value = voltage.ToFloat();
@@ -84,6 +89,7 @@ namespace PowerSupplyManager
         private CancellationTokenSource _token;
         private readonly string _comPort;
         private bool _outOn;
+        private OverCurrentMode _overCurrentMode = OverCurrentMode.SteadyOutput;
 
         private readonly FloatValue _voltage = new FloatValue(2)
         {
@@ -136,10 +142,11 @@ namespace PowerSupplyManager
 
         private string CreateSendMessage()
         {
-            return string.Format("{0}{1:00}{2:00}H{3:0}{4:000}{5}Y",
+            return string.Format("{0}{1:00}{2:00}{3}{4:0}{5:000}{6}",
                                  CommandPrefix,
                                  _voltage.Integer,
                                  _voltage.Divisional,
+                                 _overCurrentMode == OverCurrentMode.SteadyOutput ? "H" : "C",
                                  _current.Integer,
                                  _current.Divisional,
                                  _outOn ? "O" : "N");

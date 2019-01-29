@@ -20,6 +20,7 @@ namespace PowerSupplyManager
         private void FormMain_Load(object sender, EventArgs e)
         {
             statusCom.Text = @"-";
+            comboOverCurrent.SelectedIndex = 0;
 
             CreateFloatValuePanels();
             CreateHandler();
@@ -168,6 +169,16 @@ namespace PowerSupplyManager
                 Integer = 5,
                 Divisional = 0
             };
+        }
+
+        private void comboOverCurrent_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var overCurrentMode =
+                comboOverCurrent.SelectedIndex == 0
+                    ? OverCurrentMode.SteadyOutput
+                    : OverCurrentMode.TripOutput;
+
+            _comHandler?.SetOverCurrentMode(overCurrentMode);
         }
     }
 }
