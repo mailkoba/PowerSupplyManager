@@ -33,6 +33,10 @@ YHPPSU[voltage]A[current][overcurrent]
 
 ![Screenshot](./main_form_screen.png)
 
+## Platform
+
+.Net Framework 4.5.
+
 ## LICENSE
 
 The software released under the terms of the MIT license.
