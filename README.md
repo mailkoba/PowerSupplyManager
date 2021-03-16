@@ -37,6 +37,15 @@ YHPPSU[voltage]A[current][overcurrent]
 
 .Net Framework 4.5.
 
+## Build
+
+For build requires Visual Studio 2017/2019 - https://visualstudio.microsoft.com/ru/downloads/
+
+Run in command line for VS 2019 Community:
+```bash
+"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\MsBuild.exe" PowerSupplyManager.sln /p:Configuration=Release
+```
+
 ## LICENSE
 
 The software released under the terms of the MIT license.
