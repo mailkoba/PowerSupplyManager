@@ -1,8 +1,9 @@
 # PowerSupplyManager
 Windows GUI manager for YIHUA 305DB (Element 305DB, etc) power supply.
 
-- http://yihua-gz.com/Products_detail.asp?id=467&sortid=264
 - http://yihua-soldering.com/profile/download-center.html/158743/0/
+
+![Screenshot](./305db-1.jpg)
 
 Max voltage - 31V, max current - 5A.
 
